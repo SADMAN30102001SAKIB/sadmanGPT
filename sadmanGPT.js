@@ -17,12 +17,12 @@ const userInterface = readline.createInterface({
 
 const greetings = ["Hello!", "Hi there!", "Greetings!", "Nice to meet you!"]
 const prompts = [
-  "\nWhat can I help you with today?\n",
-  "\nHow can I assist you?\n",
-  "\nWhat do you need help with?\n",
+  "\n\n-- What can I help you with today?\n",
+  "\n\n-- How can I assist you?\n",
+  "\n\n-- What do you need help with?\n",
 ]
 
-console.log(`${greetings[Math.floor(Math.random() * greetings.length)]} I'm here to help!`)
+console.log(`-- ${greetings[Math.floor(Math.random() * greetings.length)]} I'm here to help!`)
 userInterface.prompt()
 
 userInterface.on("line", async input => {
@@ -34,9 +34,9 @@ userInterface.on("line", async input => {
   console.log("\n" + message)
   
   if (message.startsWith("Sure, I can help you with ")) {
-    console.log("\nGreat! What else can I help you with?\n")
+    console.log("\n\n-- Great! What else can I help you with?\n")
   } else if (message.startsWith("Sorry, I didn't understand ")) {
-    console.log("\nI'm sorry, could you please rephrase your request?\n")
+    console.log("\n\n-- I'm sorry, could you please rephrase your request?\n")
   } else {
     console.log(`${prompts[Math.floor(Math.random() * prompts.length)]}`)
   }
