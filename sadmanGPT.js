@@ -1,4 +1,6 @@
 import { config } from "dotenv"
+import say from 'say';
+
 config()
 
 import { Configuration, OpenAIApi } from "openai"
@@ -32,6 +34,7 @@ userInterface.on("line", async input => {
   })
   const message = response.data.choices[0].message.content
   console.log("\n" + message)
+  say.speak(message)
   
   if (message.startsWith("Sure, I can help you with ")) {
     console.log("\n\n-- Great! What else can I help you with?\n")
